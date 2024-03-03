@@ -995,3 +995,19 @@ const struct wlr_drm_format_set *wlr_output_get_primary_formats(
 
 	return formats;
 }
+
+void wlr_output_send_request_state(struct wlr_output *output,
+		const struct wlr_output_state *state) {
+	uint32_t unchanged = output_compare_state(output, state);
+	struct wlr_output_state copy = *state;
+	copy.committed &= ~unchanged;
+	if (copy.committed == 0) {
+		return;
+	}
+
+	struct wlr_output_event_request_state event = {
+		.output = output,
+		.state = &copy,
+	};
+	wl_signal_emit_mutable(&output->events.request_state, &event);
+}
