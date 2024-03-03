@@ -289,3 +289,14 @@ struct wlr_gamma_control_manager_v1 *wlr_gamma_control_manager_v1_create(
 
 	return manager;
 }
+
+struct wlr_gamma_control_v1 *wlr_gamma_control_manager_v1_get_control(
+		struct wlr_gamma_control_manager_v1 *manager, struct wlr_output *output) {
+	struct wlr_gamma_control_v1 *gamma_control;
+	wl_list_for_each(gamma_control, &manager->controls, link) {
+		if (gamma_control->output == output) {
+			return gamma_control;
+		}
+	}
+	return NULL;
+}

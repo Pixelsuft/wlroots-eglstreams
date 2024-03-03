@@ -33,4 +33,6 @@ struct wlr_gamma_control_v1 {
 struct wlr_gamma_control_manager_v1 *wlr_gamma_control_manager_v1_create(
 	struct wl_display *display);
 
+// Pixelsuft's compat
+struct wlr_gamma_control_v1 *wlr_gamma_control_manager_v1_get_control(struct wlr_gamma_control_manager_v1 *manager, struct wlr_output *output);
 #endif
