@@ -532,4 +532,6 @@ enum wl_output_transform wlr_output_transform_invert(
 enum wl_output_transform wlr_output_transform_compose(
 	enum wl_output_transform tr_a, enum wl_output_transform tr_b);
 
+// Pixelsuft's compat
+void wlr_output_state_init(struct wlr_output_state *state);
 #endif

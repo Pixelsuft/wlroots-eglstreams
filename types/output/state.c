@@ -50,3 +50,8 @@ void wlr_output_state_set_subpixel(struct wlr_output_state *state,
 	state->committed |= WLR_OUTPUT_STATE_SUBPIXEL;
 	state->subpixel = subpixel;
 }
+
+void wlr_output_state_init(struct wlr_output_state *state) {
+	*state = (struct wlr_output_state){0};
+	pixman_region32_init(&state->damage);
+}
