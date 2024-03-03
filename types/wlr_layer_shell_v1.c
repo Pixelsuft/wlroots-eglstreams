@@ -263,6 +263,9 @@ static const struct zwlr_layer_surface_v1_interface layer_surface_implementation
 
 static void layer_surface_unmap(struct wlr_layer_surface_v1 *surface) {
 	surface->configured = surface->mapped = false;
+	if (surface->surface) {
+		surface->surface->mapped = false;
+	}
 
 	// TODO: probably need to ungrab before this event
 	wlr_signal_emit_safe(&surface->events.unmap, surface);
@@ -280,7 +283,7 @@ static void layer_surface_unmap(struct wlr_layer_surface_v1 *surface) {
 }
 
 static void layer_surface_destroy(struct wlr_layer_surface_v1 *surface) {
-	if (surface->configured && surface->mapped) {
+	if (surface->configured && (surface->mapped || (surface && surface->surface->mapped))) {
 		layer_surface_unmap(surface);
 	}
 	wlr_signal_emit_safe(&surface->events.destroy, surface);

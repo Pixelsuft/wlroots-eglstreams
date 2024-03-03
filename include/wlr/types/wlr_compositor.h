@@ -165,6 +165,7 @@ struct wlr_surface {
 	} previous;
 
 	bool opaque;
+	bool mapped;
 };
 
 struct wlr_renderer;
