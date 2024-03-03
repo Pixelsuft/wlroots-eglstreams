@@ -197,4 +197,7 @@ struct wlr_surface *wlr_layer_surface_v1_popup_surface_at(
 struct wlr_layer_surface_v1 *wlr_layer_surface_v1_from_resource(
 		struct wl_resource *resource);
 
+// Pixelsuft's Compat
+struct wlr_layer_surface_v1 *wlr_layer_surface_v1_try_from_wlr_surface(struct wlr_surface *surface);
+
 #endif

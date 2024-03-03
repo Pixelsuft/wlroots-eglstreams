@@ -607,3 +607,9 @@ struct wlr_surface *wlr_layer_surface_v1_popup_surface_at(
 
 	return NULL;
 }
+
+struct wlr_layer_surface_v1 *wlr_layer_surface_v1_try_from_wlr_surface(struct wlr_surface *surface) {
+	if (!surface)
+		return NULL;
+	return wlr_layer_surface_v1_from_wlr_surface(surface);
+}

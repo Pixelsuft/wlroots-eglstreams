@@ -1,0 +1,4 @@
+#ifndef WLR_TYPES_WLR_CURSOR_SHAPE_V1_H
+#define WLR_TYPES_WLR_CURSOR_SHAPE_V1_H
+
+#endif

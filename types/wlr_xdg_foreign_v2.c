@@ -430,3 +430,15 @@ struct wlr_xdg_foreign_v2 *wlr_xdg_foreign_v2_create(
 
 	return foreign;
 }
+
+struct wlr_xdg_surface *wlr_xdg_surface_try_from_wlr_surface(struct wlr_surface *surface) {
+	if (!surface)
+		return NULL;
+	return wlr_xdg_surface_from_wlr_surface(surface);
+}
+
+struct wlr_xdg_toplevel *wlr_xdg_toplevel_try_from_wlr_surface(struct wlr_surface *surface) {
+	if (!surface || !surface->resource)
+		return NULL;
+	return wlr_xdg_toplevel_from_resource(surface->resource);
+}

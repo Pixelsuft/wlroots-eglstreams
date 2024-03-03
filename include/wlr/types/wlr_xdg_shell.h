@@ -528,4 +528,8 @@ void wlr_xdg_surface_for_each_popup_surface(struct wlr_xdg_surface *surface,
  */
 uint32_t wlr_xdg_surface_schedule_configure(struct wlr_xdg_surface *surface);
 
+// Pixelsuft's compat
+struct wlr_xdg_surface *wlr_xdg_surface_try_from_wlr_surface(struct wlr_surface *surface);
+
+struct wlr_xdg_toplevel *wlr_xdg_toplevel_try_from_wlr_surface(struct wlr_surface *surface);
 #endif
