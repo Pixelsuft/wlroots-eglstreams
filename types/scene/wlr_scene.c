@@ -1211,7 +1211,8 @@ static bool scene_output_scanout(struct wlr_scene_output *scene_output) {
 	return wlr_output_commit(output);
 }
 
-bool wlr_scene_output_commit(struct wlr_scene_output *scene_output) {
+bool wlr_scene_output_commit(struct wlr_scene_output *scene_output, const struct wlr_scene_output_state_options *options) {
+	(void)options;
 	struct wlr_output *output = scene_output->output;
 	enum wlr_scene_debug_damage_option debug_damage =
 		scene_output->scene->debug_damage_option;

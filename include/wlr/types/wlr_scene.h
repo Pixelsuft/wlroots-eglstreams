@@ -385,7 +385,10 @@ void wlr_scene_output_set_position(struct wlr_scene_output *scene_output,
 /**
  * Render and commit an output.
  */
-bool wlr_scene_output_commit(struct wlr_scene_output *scene_output);
+struct wlr_scene_output_state_options {
+	int dummy;
+};
+bool wlr_scene_output_commit(struct wlr_scene_output *scene_output, const struct wlr_scene_output_state_options *options);
 /**
  * Call wlr_surface_send_frame_done() on all surfaces in the scene rendered by
  * wlr_scene_output_commit() for which wlr_scene_surface.primary_output
