@@ -442,3 +442,9 @@ struct wlr_xdg_toplevel *wlr_xdg_toplevel_try_from_wlr_surface(struct wlr_surfac
 		return NULL;
 	return wlr_xdg_toplevel_from_resource(surface->resource);
 }
+
+uint32_t wlr_xdg_toplevel_set_suspended(struct wlr_xdg_toplevel *toplevel, bool suspended) {
+	(void)toplevel;
+	(void)suspended;
+	return 0;
+}

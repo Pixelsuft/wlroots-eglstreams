@@ -171,3 +171,11 @@ void wlr_fbox_transform(struct wlr_fbox *dest, const struct wlr_fbox *box,
 		break;
 	}
 }
+
+bool wlr_box_equal(const struct wlr_box *a, const struct wlr_box *b) {
+	if (a == b)
+		return true;
+	if (!a || !b)
+		return false;
+	return a->width == b->width && a->height == b->height && a->x == b->x && a->y == b->y;
+}

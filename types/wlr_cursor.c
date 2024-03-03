@@ -901,3 +901,10 @@ void wlr_cursor_map_input_to_region(struct wlr_cursor *cur,
 		c_device->mapped_box.width = c_device->mapped_box.height = 0;
 	}
 }
+
+void wlr_cursor_set_xcursor(void *cur, void *manager, const char *name) {
+	(void)cur;
+	(void)manager;
+	(void)name;
+}
+

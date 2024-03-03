@@ -203,4 +203,6 @@ void wlr_cursor_map_to_region(struct wlr_cursor *cur, const struct wlr_box *box)
 void wlr_cursor_map_input_to_region(struct wlr_cursor *cur,
 	struct wlr_input_device *dev, const struct wlr_box *box);
 
+// Pixelsuft's compat
+void wlr_cursor_set_xcursor(void *cur, void *manager, const char *name);
 #endif
