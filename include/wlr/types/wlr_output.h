@@ -543,4 +543,6 @@ void wlr_output_state_init(struct wlr_output_state *state);
 
 void wlr_output_send_request_state(struct wlr_output *output,
 	const struct wlr_output_state *state);
+
+void wlr_output_state_finish(struct wlr_output_state *state);
 #endif
