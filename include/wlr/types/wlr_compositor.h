@@ -76,6 +76,7 @@ struct wlr_surface_role {
 	void (*commit)(struct wlr_surface *surface);
 	void (*precommit)(struct wlr_surface *surface,
 		const struct wlr_surface_state *state);
+	void (*unmap)(struct wlr_surface *surface);
 };
 
 struct wlr_surface_output {
@@ -146,6 +147,8 @@ struct wlr_surface {
 		struct wl_signal commit;
 		struct wl_signal new_subsurface;
 		struct wl_signal destroy;
+		struct wl_signal map;
+		struct wl_signal unmap;
 	} events;
 
 	struct wl_list current_outputs; // wlr_surface_output.link
@@ -304,4 +307,7 @@ void wlr_surface_unlock_cached(struct wlr_surface *surface, uint32_t seq);
 struct wlr_compositor *wlr_compositor_create(struct wl_display *display,
 	struct wlr_renderer *renderer);
 
+void wlr_surface_map(struct wlr_surface *surface);
+
+void wlr_surface_unmap(struct wlr_surface *surface);
 #endif
